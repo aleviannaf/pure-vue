@@ -11,6 +11,8 @@
         <p>{{mensagem}}</p>
         <p>Meu nome é: {{name}}</p>
         <input v-on:input="mudarNome"> <!--  aqui add a diretiva v-on que trabalha com elementos nativos do dom -->
+
+        <a v-bind:href="docs">Vue Js</a> <!-- fazer data binding em atributos -->
   
     </div>
     
@@ -20,11 +22,13 @@
             el: "#app",
             data: {
                 mensagem: "olá vue",
-                name: ""
+                name: "",
+                sobreNome: "Furtado",
+                docs: "https://br.vuejs.org/v2/guide/installation.html"
             },
             methods:{
                 mudarNome: function(event){
-                    this.name = event.target.value;
+                    this.name = `${event.target.value} ${this.sobreNome}` ;
                 }
             }
         });
